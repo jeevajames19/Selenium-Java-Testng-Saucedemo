@@ -49,6 +49,7 @@ package com.jeeva.automation.config.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class DriverFactory {
@@ -62,9 +63,13 @@ public class DriverFactory {
         }
 
         switch (browser.toLowerCase()) {
-            case "chrome":
-                driver = new ChromeDriver(); // Selenium Manager
-                break;
+        case "chrome":
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless=new");
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+            driver = new ChromeDriver(chromeOptions);
+            break;
 
             case "edge":
                 driver = new EdgeDriver();
