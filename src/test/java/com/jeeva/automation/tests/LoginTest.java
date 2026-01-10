@@ -23,3 +23,4 @@ public class LoginTest extends BaseTest{
         Assert.assertEquals(error, "Invalid username or password");
     }
 }
+
