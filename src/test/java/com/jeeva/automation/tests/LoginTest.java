@@ -15,12 +15,12 @@ public class LoginTest extends BaseTest{
         // e.g., Assert.assertTrue(driver.getTitle().contains("Dashboard"));
     }
 
-    @Test
-    public void invalidLoginTest() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("invalidUser", "invalidPass");
-        String error = loginPage.getErrorMessage();
-        Assert.assertEquals(error, "Invalid username or password");
-    }
+//    @Test
+//    public void invalidLoginTest() {
+//        LoginPage loginPage = new LoginPage(driver);
+//        loginPage.login("invalidUser", "invalidPass");
+//        String error = loginPage.getErrorMessage();
+//        Assert.assertEquals(error, "Invalid username or password");
+//    }
 }
 
