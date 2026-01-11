@@ -12,16 +12,6 @@ import com.jeeva.automation.config.utils.DriverFactory;
 public class BaseTest {
     public WebDriver driver;
 
-//    @BeforeMethod
-//    public void setUp() {
-//        driver = DriverFactory.getDriver(ConfigReader.getBrowser());
-//        driver.get(ConfigReader.getUrl());
-//    }
-//
-//    @AfterMethod
-//    public void tearDown() {
-//        driver.quit();
-//    }
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = DriverFactory.getDriver(ConfigReader.getBrowser());
