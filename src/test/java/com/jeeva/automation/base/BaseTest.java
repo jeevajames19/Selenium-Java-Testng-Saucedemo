@@ -10,7 +10,7 @@ import com.jeeva.automation.config.ConfigReader;
 import com.jeeva.automation.config.utils.DriverFactory;
 
 public class BaseTest {
-    protected WebDriver driver;
+    public WebDriver driver;
 
 //    @BeforeMethod
 //    public void setUp() {

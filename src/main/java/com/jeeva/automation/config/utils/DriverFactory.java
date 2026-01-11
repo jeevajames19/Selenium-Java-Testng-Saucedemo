@@ -52,6 +52,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class DriverFactory {
 
     private static WebDriver driver;
@@ -69,6 +71,9 @@ public class DriverFactory {
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             driver = new ChromeDriver(chromeOptions);
+
+//        	WebDriverManager.chromedriver().clearResolutionCache().setup();
+//            driver = new ChromeDriver();
             break;
 
             case "edge":
