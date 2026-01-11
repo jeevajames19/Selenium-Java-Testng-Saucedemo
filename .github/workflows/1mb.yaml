@@ -20,6 +20,13 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+        name: screenshots
+        path: target/screenshots
+
+
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
