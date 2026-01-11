@@ -1,5 +1,4 @@
 name: Maven CI Pipeline
-
 on:
   push:
     branches: [ master ]
@@ -20,30 +19,20 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v4
-        with:
-        name: screenshots
-        path: target/screenshots
-
-
-      - name: Cache Maven dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
-      # Chrome is already preinstalled on ubuntu-latest
-      - name: Verify Chrome
-        run: google-chrome --version
-
-      # Run tests (NO chromedriver setup)
+      # Run tests
       - name: Run Maven Tests
         run: |
           xvfb-run -a mvn clean test -DfailIfNoTests=false
 
+      # Upload screenshots (even if tests fail)
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: target/screenshots
+
+      # Upload TestNG / Surefire reports
       - name: Upload Test Reports
         if: always() && hashFiles('target/surefire-reports/**') != ''
         uses: actions/upload-artifact@v4
