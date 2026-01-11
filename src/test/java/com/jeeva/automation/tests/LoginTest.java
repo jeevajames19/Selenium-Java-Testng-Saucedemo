@@ -8,7 +8,7 @@ import com.jeeva.automation.base.BaseTest;
 import com.jeeva.automation.config.ConfigReader;
 import com.jeeva.automation.pages.LoginPage;
 
-@Listeners(listeners.TestListener.class)
+@Listeners(com.jeeva.automation.base.listeners.TestListener.class)
 public class LoginTest extends BaseTest{
 	@Test
     public void validLoginTest() {

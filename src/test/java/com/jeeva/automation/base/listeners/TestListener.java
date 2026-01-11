@@ -1,4 +1,4 @@
-package listeners;
+package com.jeeva.automation.base.listeners;
 
 import org.testng.ITestListener;
 import org.testng.ITestResult;
